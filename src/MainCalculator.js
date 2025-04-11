@@ -416,10 +416,4 @@ const PortugalSchoolCalculator = () => {
   );
 };
 
-export default PortugalSchoolCalculator; Check if there's a custom yearly cost
-    if (yearlyCustomCosts[year] && yearlyCustomCosts[year][schoolId] && 
-        yearlyCustomCosts[year][schoolId][costType] !== undefined) {
-      return yearlyCustomCosts[year][schoolId][costType];
-    }
-    
-    //
+export default PortugalSchoolCalculator;
