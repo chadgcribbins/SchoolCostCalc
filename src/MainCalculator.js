@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState /*, useEffect */ } from 'react';
+// Note: useEffect is commented out for now but may be implemented in future roadmap 
+// improvements for features like storing user preferences or automatic recalculations.
 import CostCustomizationPanel from './CostCustomizationPanel';
 import FamilyMembersPanel from './FamilyMembersPanel';
 import YearlyProjection from './YearlyProjection';
