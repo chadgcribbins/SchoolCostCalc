@@ -2,6 +2,5 @@
   "version": 2,
   "buildCommand": "npm install --legacy-peer-deps --force && next build",
   "outputDirectory": ".next",
-  "framework": "nextjs",
-  "ignoreCommand": "echo \"Skip check for package.json changes\""
+  "framework": "nextjs"
 }
