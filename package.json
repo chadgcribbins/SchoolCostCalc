@@ -31,12 +31,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "vercel-build": "npm install --legacy-peer-deps && next build",
+    "vercel-build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md,mdx}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md,mdx}\"",
-    "prepare": "husky install"
+    "prepare": "[ -z \"$VERCEL\" ] && husky install || echo \"Skipping husky on Vercel\""
   },
   "eslintConfig": {
     "extends": [

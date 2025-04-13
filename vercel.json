@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "npm install --legacy-peer-deps --force && next build",
+  "buildCommand": "next build",
+  "installCommand": "npm install --legacy-peer-deps --force --no-package-lock",
   "outputDirectory": ".next",
   "framework": "nextjs"
 }
