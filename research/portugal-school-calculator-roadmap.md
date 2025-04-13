@@ -2,22 +2,95 @@
 
 ## Project Summary
 
-We've built an interactive calculator tool that helps parents compare the 10-year costs of sending children to three private international schools in Portugal (The Lisboan, TASIS Portugal, and St. Dominic's) from 2025-2035.
+We've built a foundation for an interactive calculator tool that helps parents compare the 10-year costs of sending children to three private international schools in Portugal (The Lisboan, TASIS Portugal, and St. Dominic's) from 2025-2035.
 
-### Key Inputs
+### Projected Functionality
 - **Family Configuration**: Names, ages, and expected graduation years for children
 - **Optional Costs**: Toggles for lunch, transport, uniforms, activities, trips, and exam fees
 - **Currency Settings**: EUR/GBP with adjustable exchange rate
 
-### Core Features
+### Core Features (To Be Implemented)
 - Comparison of one-time fees, mandatory costs, and optional costs across schools
 - Visualization of total costs through charts
 - Breakdown of key differences between schools (sibling discounts, included services)
 - Adjustment of costs based on children's enrollment periods
 
+## Technical Implementation Plan
+
+### Application Architecture
+
+The application will be built as a React application with the following component structure:
+
+1. **MainCalculator**: The core component that handles state management and calculations
+   - Maintains the primary state for the calculator
+   - Coordinates data flow between child components
+   - Handles the primary calculation logic
+
+2. **CostCustomizationPanel**: For customizing school costs and inflation settings
+   - Controls for adjusting tuition rates
+   - Inflation rate configuration
+   - Fee structure customization
+
+3. **FamilyMembersPanel**: For adding and managing family members
+   - Add/edit/remove children
+   - Set ages and grade levels
+   - Configure enrollment periods
+
+4. **YearlyProjection**: Detailed year-by-year cost projection
+   - Tabular view of costs by year
+   - Breakdown by child and school
+   - Toggle between payment periods (annual/term/monthly)
+
+5. **VisualizationPanel**: Interactive charts and visualizations
+   - Multiple chart types for different analyses
+   - Interactive elements for exploring data
+   - Configurable views and filters
+
+6. **CostSummary**: Summary of total costs across all schools
+   - High-level comparison of total costs
+   - Side-by-side school comparison
+   - One-time vs. recurring cost breakdown
+
+### Technical Requirements
+
+- **Frontend**: React with TypeScript for type safety
+- **UI Components**: Shadcn UI/Radix UI with Tailwind CSS
+- **Data Visualization**: React-chartjs-2 for interactive charts
+- **State Management**: React Context API or similar lightweight solution
+- **Build/Deploy**: Next.js App Router framework
+
+### Development Environment
+
+- Node.js (v14+)
+- npm or yarn for package management
+- Local development server with hot reloading
+
 ## Enhancement Roadmap
 
-### Phase 1: Cost Customization & Inflation Model
+### Phase 1: Basic Application Setup & Core Functionality
+*Target: Implement the foundational application with basic functionality*
+
+1. **Project Initialization**
+   - Set up Next.js with TypeScript
+   - Configure Tailwind CSS and Shadcn UI
+   - Establish component structure and routing
+
+2. **Data Model Implementation**
+   - Define types for schools, costs, and family members
+   - Create utilities for calculations
+   - Implement base state management
+
+3. **Core Components**
+   - Build MainCalculator with basic state
+   - Implement FamilyMembersPanel
+   - Create simple CostSummary
+
+4. **Basic Visualization**
+   - Set up Chart.js integration
+   - Implement basic comparison charts
+   - Add tabular data views
+
+### Phase 2: Cost Customization & Inflation Model
 *Target: Allow users to fine-tune all financial inputs for more accurate projections*
 
 1. **Base Tuition Adjustment**
@@ -37,7 +110,7 @@ We've built an interactive calculator tool that helps parents compare the 10-yea
    - Save/load functionality for different cost scenarios
    - Default preset with official published rates
 
-### Phase 2: Enhanced Data Visualization
+### Phase 3: Enhanced Data Visualization
 *Target: Provide deeper insights through more sophisticated visualizations*
 
 1. **Cost Breakdown Charts**
@@ -60,7 +133,7 @@ We've built an interactive calculator tool that helps parents compare the 10-yea
    - Ability to toggle data series on/off
    - Options to change chart types based on user preference
 
-### Phase 3: Payment & Financial Planning Tools
+### Phase 4: Payment & Financial Planning Tools
 *Target: Help parents plan how to manage education expenses*
 
 1. **Payment Plan Simulator**
@@ -83,7 +156,7 @@ We've built an interactive calculator tool that helps parents compare the 10-yea
    - Exchange rate sensitivity analysis for expat families
    - Impact of adding/removing children from private education
 
-### Phase 4: Advanced Features & Optimizations
+### Phase 5: Advanced Features & Optimizations
 *Target: Add specialized features and improve overall experience*
 
 1. **Data Import/Export**
@@ -106,6 +179,29 @@ We've built an interactive calculator tool that helps parents compare the 10-yea
    - Contextual help throughout the interface
    - User onboarding tutorial
 
+## Component Interactions
+
+The application components will interact as follows:
+
+```
+MainCalculator
+├── FamilyMembersPanel
+│   └── FamilyMember (multiple instances)
+├── CostCustomizationPanel
+│   ├── SchoolSelector
+│   ├── TuitionEditor
+│   └── InflationControl
+├── YearlyProjection
+│   └── YearCostRow (multiple instances)
+├── VisualizationPanel
+│   ├── CostComparisonChart
+│   ├── TimelineChart
+│   └── BreakdownChart
+└── CostSummary
+    ├── SchoolComparison
+    └── TotalCostDisplay
+```
+
 ## Implementation Notes
 
 - Each phase should be implemented sequentially, with testing between phases
@@ -115,9 +211,20 @@ We've built an interactive calculator tool that helps parents compare the 10-yea
 - Document all assumptions made in calculations
 - Incorporate user feedback between phases
 
-## Technologies
+## Customization
 
-- React for UI components
-- Recharts for data visualization
-- Tailwind CSS for styling
-- LocalStorage for saving user preferences
+The calculator will come pre-loaded with the thoroughly researched data for three international schools. Users will be able to customize this data by:
+
+1. Modifying the default school data through the UI
+2. Adjusting the inflation rate and cost parameters
+3. Adding new schools or cost categories
+4. Saving and loading different scenarios
+
+## Usage Guide (Future)
+
+1. Add family members and set their ages/grades
+2. Customize school costs if needed
+3. Enable/disable optional costs
+4. View the cost summary and yearly projections
+5. Explore different visualizations to understand the cost breakdown
+6. Export or save calculations for future reference
