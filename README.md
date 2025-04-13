@@ -2,7 +2,7 @@
 
 A responsive web application to help families project and plan for international school education costs in Portugal.
 
-## Features and good stuff
+## Features
 
 - Calculate projected costs for multiple children
 - Compare costs between different schools
