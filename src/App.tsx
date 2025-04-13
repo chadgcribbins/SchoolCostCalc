@@ -1,8 +1,8 @@
-import MainCalculator from '@/components/calculator/MainCalculator';
+import MainCalculator from '@/components/MainCalculator';
 
 function App() {
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-950 min-h-screen">
       <MainCalculator />
     </div>
   );

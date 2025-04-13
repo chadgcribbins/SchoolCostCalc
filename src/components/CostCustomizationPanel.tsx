@@ -79,18 +79,22 @@ const CostCustomizationPanel = ({
   };
 
   return (
-    <Card className="bg-white p-6 rounded-lg shadow">
+    <Card className="bg-gray-800 p-6 rounded-lg shadow border border-gray-700 text-white">
       <Grid cols={1} gap="lg">
         <div>
-          <h3 className="text-lg font-semibold mb-4">Optional Costs</h3>
+          <h3 className="text-lg font-semibold mb-4 text-white">Optional Costs</h3>
           <Grid cols={2} mdCols={4} gap="md">
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="include-lunch"
                 checked={includeLunch}
                 onCheckedChange={checked => setIncludeLunch(checked === true)}
+                className="border-gray-600 data-[state=checked]:bg-blue-600"
               />
-              <Label htmlFor="include-lunch" className="text-sm font-medium leading-none">
+              <Label
+                htmlFor="include-lunch"
+                className="text-sm font-medium leading-none text-gray-300"
+              >
                 Include Lunch
               </Label>
             </div>
@@ -100,8 +104,12 @@ const CostCustomizationPanel = ({
                 id="include-transport"
                 checked={includeTransport}
                 onCheckedChange={checked => setIncludeTransport(checked === true)}
+                className="border-gray-600 data-[state=checked]:bg-blue-600"
               />
-              <Label htmlFor="include-transport" className="text-sm font-medium leading-none">
+              <Label
+                htmlFor="include-transport"
+                className="text-sm font-medium leading-none text-gray-300"
+              >
                 Include Transport
               </Label>
             </div>
@@ -111,8 +119,12 @@ const CostCustomizationPanel = ({
                 id="include-uniform"
                 checked={includeUniform}
                 onCheckedChange={checked => setIncludeUniform(checked === true)}
+                className="border-gray-600 data-[state=checked]:bg-blue-600"
               />
-              <Label htmlFor="include-uniform" className="text-sm font-medium leading-none">
+              <Label
+                htmlFor="include-uniform"
+                className="text-sm font-medium leading-none text-gray-300"
+              >
                 Include Uniform
               </Label>
             </div>
@@ -122,8 +134,12 @@ const CostCustomizationPanel = ({
                 id="include-after-school"
                 checked={includeAfterSchool}
                 onCheckedChange={checked => setIncludeAfterSchool(checked === true)}
+                className="border-gray-600 data-[state=checked]:bg-blue-600"
               />
-              <Label htmlFor="include-after-school" className="text-sm font-medium leading-none">
+              <Label
+                htmlFor="include-after-school"
+                className="text-sm font-medium leading-none text-gray-300"
+              >
                 Include After School
               </Label>
             </div>
@@ -131,25 +147,27 @@ const CostCustomizationPanel = ({
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-4">Financial Settings</h3>
+          <h3 className="text-lg font-semibold mb-4 text-white">Financial Settings</h3>
           <Grid cols={1} mdCols={3} gap="md">
             <div>
-              <Label className="block text-sm font-medium mb-1">Currency</Label>
+              <Label className="block text-sm font-medium mb-1 text-gray-300">Currency</Label>
               <select
                 value={currency}
                 onChange={e => setCurrency(e.target.value)}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
               >
                 <option value="EUR">Euro (€)</option>
                 <option value="GBP">British Pound (£)</option>
               </select>
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="mt-1 text-xs text-gray-400">
                 Exchange rate: 1 EUR = {exchangeRate} GBP
               </p>
             </div>
 
             <div>
-              <Label className="block text-sm font-medium mb-1">Inflation Rate (%)</Label>
+              <Label className="block text-sm font-medium mb-1 text-gray-300">
+                Inflation Rate (%)
+              </Label>
               <input
                 type="number"
                 min="0"
@@ -158,7 +176,7 @@ const CostCustomizationPanel = ({
                 value={inflationRate}
                 onChange={handleInflationRateChange}
                 disabled={!applyInflation}
-                className={`w-full px-3 py-2 border rounded ${!applyInflation ? 'opacity-50' : ''}`}
+                className={`w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 ${!applyInflation ? 'opacity-50' : ''}`}
               />
             </div>
 
@@ -168,8 +186,11 @@ const CostCustomizationPanel = ({
                   id="apply-inflation"
                   checked={applyInflation}
                   onCheckedChange={setApplyInflation}
+                  className="data-[state=checked]:bg-blue-600"
                 />
-                <Label htmlFor="apply-inflation">Apply inflation to future costs</Label>
+                <Label htmlFor="apply-inflation" className="text-gray-300">
+                  Apply inflation to future costs
+                </Label>
               </div>
             </div>
           </Grid>
@@ -177,14 +198,17 @@ const CostCustomizationPanel = ({
 
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold">Custom School Costs</h3>
+            <h3 className="text-lg font-semibold text-white">Custom School Costs</h3>
             <div className="flex items-center space-x-2">
               <Switch
                 id="use-custom-costs"
                 checked={useCustomCosts}
                 onCheckedChange={setUseCustomCosts}
+                className="data-[state=checked]:bg-blue-600"
               />
-              <Label htmlFor="use-custom-costs">Use custom costs</Label>
+              <Label htmlFor="use-custom-costs" className="text-gray-300">
+                Use custom costs
+              </Label>
             </div>
           </div>
 
@@ -196,7 +220,7 @@ const CostCustomizationPanel = ({
                     key={schoolId}
                     variant={activeSchool === schoolId ? 'default' : 'outline'}
                     onClick={() => setActiveSchool(schoolId)}
-                    className="text-sm"
+                    className={`text-sm ${activeSchool === schoolId ? 'bg-blue-600 hover:bg-blue-700' : 'border-gray-600 text-gray-300 hover:bg-gray-700'}`}
                   >
                     {schoolsData[schoolId].name}
                   </Button>
@@ -204,12 +228,14 @@ const CostCustomizationPanel = ({
               </div>
 
               {activeSchool && (
-                <div className="mt-4 p-4 border border-gray-200 rounded-lg">
-                  <h4 className="font-medium mb-3">{schoolsData[activeSchool].name} Costs</h4>
+                <div className="mt-4 p-4 border border-gray-700 rounded-lg bg-gray-750">
+                  <h4 className="font-medium mb-3 text-white">
+                    {schoolsData[activeSchool].name} Costs
+                  </h4>
 
                   <Grid cols={1} mdCols={2} lgCols={3} gap="md">
                     <div>
-                      <Label className="block text-sm mb-1">Base Tuition</Label>
+                      <Label className="block text-sm mb-1 text-gray-300">Base Tuition</Label>
                       <input
                         type="number"
                         min="0"
@@ -218,12 +244,12 @@ const CostCustomizationPanel = ({
                         onChange={e =>
                           updateSchoolData(activeSchool, 'baseTuition', parseInt(e.target.value))
                         }
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
-                      <Label className="block text-sm mb-1">Registration Fee</Label>
+                      <Label className="block text-sm mb-1 text-gray-300">Registration Fee</Label>
                       <input
                         type="number"
                         min="0"
@@ -236,12 +262,14 @@ const CostCustomizationPanel = ({
                             parseInt(e.target.value)
                           )
                         }
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
-                      <Label className="block text-sm mb-1">Enrollment Fee (Yearly)</Label>
+                      <Label className="block text-sm mb-1 text-gray-300">
+                        Enrollment Fee (Yearly)
+                      </Label>
                       <input
                         type="number"
                         min="0"
@@ -254,12 +282,12 @@ const CostCustomizationPanel = ({
                             parseInt(e.target.value)
                           )
                         }
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
-                      <Label className="block text-sm mb-1">Lunch (Yearly)</Label>
+                      <Label className="block text-sm mb-1 text-gray-300">Lunch (Yearly)</Label>
                       <input
                         type="number"
                         min="0"
@@ -268,12 +296,12 @@ const CostCustomizationPanel = ({
                         onChange={e =>
                           updateSchoolData(activeSchool, 'lunch', parseInt(e.target.value))
                         }
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
-                      <Label className="block text-sm mb-1">Transport (Yearly)</Label>
+                      <Label className="block text-sm mb-1 text-gray-300">Transport (Yearly)</Label>
                       <input
                         type="number"
                         min="0"
@@ -282,12 +310,12 @@ const CostCustomizationPanel = ({
                         onChange={e =>
                           updateSchoolData(activeSchool, 'transport', parseInt(e.target.value))
                         }
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
-                      <Label className="block text-sm mb-1">Uniform (Yearly)</Label>
+                      <Label className="block text-sm mb-1 text-gray-300">Uniform (Yearly)</Label>
                       <input
                         type="number"
                         min="0"
@@ -296,12 +324,14 @@ const CostCustomizationPanel = ({
                         onChange={e =>
                           updateSchoolData(activeSchool, 'uniform', parseInt(e.target.value))
                         }
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
-                      <Label className="block text-sm mb-1">After School (Yearly)</Label>
+                      <Label className="block text-sm mb-1 text-gray-300">
+                        After School (Yearly)
+                      </Label>
                       <input
                         type="number"
                         min="0"
@@ -310,7 +340,7 @@ const CostCustomizationPanel = ({
                         onChange={e =>
                           updateSchoolData(activeSchool, 'afterSchool', parseInt(e.target.value))
                         }
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                   </Grid>
@@ -318,7 +348,11 @@ const CostCustomizationPanel = ({
               )}
 
               <div className="mt-4 flex justify-end">
-                <Button variant="outline" onClick={resetCustomData}>
+                <Button
+                  variant="outline"
+                  onClick={resetCustomData}
+                  className="border-gray-600 text-gray-300 hover:bg-gray-700"
+                >
                   Reset Custom Data
                 </Button>
               </div>

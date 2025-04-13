@@ -27,18 +27,18 @@ export function Section({
   return (
     <section
       className={cn(
-        'bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden',
+        'bg-gray-800 rounded-lg shadow-sm border border-gray-700 overflow-hidden',
         className
       )}
       {...props}
     >
       {(title || description) && (
-        <div className="border-b border-gray-200 bg-gray-50 px-6 py-4">
+        <div className="border-b border-gray-700 bg-gray-900 px-6 py-4">
           {title && (
-            <h2 className={cn('text-lg font-semibold text-gray-900', titleClassName)}>{title}</h2>
+            <h2 className={cn('text-lg font-semibold text-white', titleClassName)}>{title}</h2>
           )}
           {description && (
-            <p className={cn('mt-1 text-sm text-gray-500', descriptionClassName)}>{description}</p>
+            <p className={cn('mt-1 text-sm text-gray-400', descriptionClassName)}>{description}</p>
           )}
         </div>
       )}

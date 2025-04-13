@@ -126,18 +126,18 @@ const FamilyMembersPanel = ({
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Family Members</h2>
+        <h2 className="text-2xl font-bold text-white">Family Members</h2>
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
           <DialogTrigger asChild>
             <Button className="bg-blue-600 hover:bg-blue-700 text-white">Add Family Member</Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[500px]">
+          <DialogContent className="sm:max-w-[500px] bg-gray-900 border-gray-700 text-white">
             <DialogHeader>
-              <DialogTitle>Add Family Member</DialogTitle>
+              <DialogTitle className="text-white">Add Family Member</DialogTitle>
             </DialogHeader>
             <Grid cols={1} gap="md">
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="name" className="text-right">
+                <Label htmlFor="name" className="text-right text-gray-300">
                   Name
                 </Label>
                 <input
@@ -147,11 +147,11 @@ const FamilyMembersPanel = ({
                   onChange={e => setNewMember({ ...newMember, name: e.target.value })}
                   onKeyPress={handleKeyPress}
                   placeholder="Child's name"
-                  className="col-span-3 w-full px-3 py-2 border rounded"
+                  className="col-span-3 w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="age" className="text-right">
+                <Label htmlFor="age" className="text-right text-gray-300">
                   Age
                 </Label>
                 <input
@@ -168,11 +168,11 @@ const FamilyMembersPanel = ({
                         currentYear + Math.max(1, 12 - (parseInt(e.target.value) - 5)),
                     })
                   }
-                  className="col-span-3 w-full px-3 py-2 border rounded"
+                  className="col-span-3 w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="graduation" className="text-right">
+                <Label htmlFor="graduation" className="text-right text-gray-300">
                   Graduation Year
                 </Label>
                 <select
@@ -181,7 +181,7 @@ const FamilyMembersPanel = ({
                   onChange={e =>
                     setNewMember({ ...newMember, graduationYear: parseInt(e.target.value) })
                   }
-                  className="col-span-3 w-full px-3 py-2 border rounded"
+                  className="col-span-3 w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                 >
                   {years
                     .concat(Array.from({ length: 8 }, (_, i) => currentYear + 10 + i))
@@ -193,7 +193,7 @@ const FamilyMembersPanel = ({
                 </select>
               </div>
               <div className="grid grid-cols-4 items-start gap-4">
-                <Label className="text-right">Optional Costs</Label>
+                <Label className="text-right text-gray-300">Optional Costs</Label>
                 <div className="col-span-3 grid grid-cols-2 gap-2">
                   <div className="flex items-center space-x-2">
                     <Checkbox
@@ -208,8 +208,11 @@ const FamilyMembersPanel = ({
                           },
                         })
                       }
+                      className="border-gray-600 data-[state=checked]:bg-blue-600"
                     />
-                    <Label htmlFor="new-lunch">Include Lunch</Label>
+                    <Label htmlFor="new-lunch" className="text-gray-300">
+                      Include Lunch
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox
@@ -224,8 +227,11 @@ const FamilyMembersPanel = ({
                           },
                         })
                       }
+                      className="border-gray-600 data-[state=checked]:bg-blue-600"
                     />
-                    <Label htmlFor="new-transport">Include Transport</Label>
+                    <Label htmlFor="new-transport" className="text-gray-300">
+                      Include Transport
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox
@@ -240,8 +246,11 @@ const FamilyMembersPanel = ({
                           },
                         })
                       }
+                      className="border-gray-600 data-[state=checked]:bg-blue-600"
                     />
-                    <Label htmlFor="new-uniform">Include Uniform</Label>
+                    <Label htmlFor="new-uniform" className="text-gray-300">
+                      Include Uniform
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox
@@ -256,13 +265,23 @@ const FamilyMembersPanel = ({
                           },
                         })
                       }
+                      className="border-gray-600 data-[state=checked]:bg-blue-600"
                     />
-                    <Label htmlFor="new-after-school">Include After School</Label>
+                    <Label htmlFor="new-after-school" className="text-gray-300">
+                      Include After School
+                    </Label>
                   </div>
                 </div>
               </div>
             </Grid>
-            <div className="flex justify-end mt-6">
+            <div className="flex justify-end mt-6 gap-2">
+              <Button
+                variant="secondary"
+                onClick={() => setIsAddDialogOpen(false)}
+                className="bg-gray-700 hover:bg-gray-600 text-white"
+              >
+                Cancel
+              </Button>
               <Button
                 onClick={addFamilyMember}
                 className="bg-blue-600 hover:bg-blue-700 text-white"
@@ -275,27 +294,31 @@ const FamilyMembersPanel = ({
       </div>
 
       {familyMembers.length > 0 ? (
-        <Card className="bg-white rounded-lg overflow-hidden mb-6">
+        <Card className="bg-gray-800 rounded-lg overflow-hidden mb-6 border border-gray-700">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr>
-                  <th className="text-left p-4 bg-gray-50 font-medium">Name</th>
-                  <th className="text-left p-4 bg-gray-50 font-medium">Age</th>
-                  <th className="text-left p-4 bg-gray-50 font-medium">Graduation Year</th>
-                  <th className="text-left p-4 bg-gray-50 font-medium">Optional Costs</th>
-                  <th className="text-right p-4 bg-gray-50 font-medium">Actions</th>
+                  <th className="text-left p-4 bg-gray-900 font-medium text-white">Name</th>
+                  <th className="text-left p-4 bg-gray-900 font-medium text-white">Age</th>
+                  <th className="text-left p-4 bg-gray-900 font-medium text-white">
+                    Graduation Year
+                  </th>
+                  <th className="text-left p-4 bg-gray-900 font-medium text-white">
+                    Optional Costs
+                  </th>
+                  <th className="text-right p-4 bg-gray-900 font-medium text-white">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-700">
                 {familyMembers.map(member => (
-                  <tr key={member.id}>
+                  <tr key={member.id} className="hover:bg-gray-750">
                     <td className="p-4">
                       <input
                         type="text"
                         value={member.name}
                         onChange={e => updateFamilyMember(member.id, 'name', e.target.value)}
-                        className="w-full px-3 py-2 border rounded"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </td>
                     <td className="p-4">
@@ -307,7 +330,7 @@ const FamilyMembersPanel = ({
                         onChange={e =>
                           updateFamilyMember(member.id, 'age', parseInt(e.target.value))
                         }
-                        className="w-20 px-3 py-2 border rounded"
+                        className="w-20 px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </td>
                     <td className="p-4">
@@ -316,7 +339,7 @@ const FamilyMembersPanel = ({
                         onChange={e =>
                           updateFamilyMember(member.id, 'graduationYear', parseInt(e.target.value))
                         }
-                        className="px-3 py-2 border rounded"
+                        className="px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       >
                         {years
                           .concat(Array.from({ length: 8 }, (_, i) => currentYear + 10 + i))
@@ -336,8 +359,9 @@ const FamilyMembersPanel = ({
                             onCheckedChange={checked =>
                               updateOptionalCost(member.id, 'lunch', checked === true)
                             }
+                            className="border-gray-600 data-[state=checked]:bg-blue-600"
                           />
-                          <Label htmlFor={`lunch-${member.id}`} className="text-sm">
+                          <Label htmlFor={`lunch-${member.id}`} className="text-sm text-gray-300">
                             Lunch
                           </Label>
                         </div>
@@ -348,8 +372,12 @@ const FamilyMembersPanel = ({
                             onCheckedChange={checked =>
                               updateOptionalCost(member.id, 'transport', checked === true)
                             }
+                            className="border-gray-600 data-[state=checked]:bg-blue-600"
                           />
-                          <Label htmlFor={`transport-${member.id}`} className="text-sm">
+                          <Label
+                            htmlFor={`transport-${member.id}`}
+                            className="text-sm text-gray-300"
+                          >
                             Transport
                           </Label>
                         </div>
@@ -360,8 +388,9 @@ const FamilyMembersPanel = ({
                             onCheckedChange={checked =>
                               updateOptionalCost(member.id, 'uniform', checked === true)
                             }
+                            className="border-gray-600 data-[state=checked]:bg-blue-600"
                           />
-                          <Label htmlFor={`uniform-${member.id}`} className="text-sm">
+                          <Label htmlFor={`uniform-${member.id}`} className="text-sm text-gray-300">
                             Uniform
                           </Label>
                         </div>
@@ -372,8 +401,12 @@ const FamilyMembersPanel = ({
                             onCheckedChange={checked =>
                               updateOptionalCost(member.id, 'afterSchool', checked === true)
                             }
+                            className="border-gray-600 data-[state=checked]:bg-blue-600"
                           />
-                          <Label htmlFor={`after-school-${member.id}`} className="text-sm">
+                          <Label
+                            htmlFor={`after-school-${member.id}`}
+                            className="text-sm text-gray-300"
+                          >
                             After School
                           </Label>
                         </div>
@@ -395,13 +428,13 @@ const FamilyMembersPanel = ({
           </div>
         </Card>
       ) : (
-        <div className="bg-blue-50 text-blue-800 p-6 rounded-lg text-center mb-6">
+        <div className="bg-gray-800 border border-gray-700 text-gray-200 p-6 rounded-lg text-center mb-6">
           <p className="text-lg font-medium">No family members added yet</p>
-          <p className="mt-2">Add family members to calculate education costs</p>
+          <p className="mt-2 text-gray-400">Add family members to calculate education costs</p>
         </div>
       )}
 
-      <div className="text-sm text-gray-500">
+      <div className="text-sm text-gray-400">
         <p>Note: Graduation year is estimated based on the child's current age.</p>
         <p>
           Children typically start school at 5-6 years old and graduate after 12 years of education.

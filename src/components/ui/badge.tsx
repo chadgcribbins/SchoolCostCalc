@@ -20,14 +20,14 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default: 'bg-gray-100 text-gray-800',
-  primary: 'bg-primary-100 text-primary-800',
-  success: 'bg-green-100 text-green-800',
-  warning: 'bg-yellow-100 text-yellow-800',
-  danger: 'bg-red-100 text-red-800',
-  info: 'bg-blue-100 text-blue-800',
+  default: 'bg-gray-700 text-gray-100',
+  primary: 'bg-blue-900 text-blue-100',
+  success: 'bg-green-900 text-green-100',
+  warning: 'bg-yellow-900 text-yellow-100',
+  danger: 'bg-red-900 text-red-100',
+  info: 'bg-sky-900 text-sky-100',
   dark: 'bg-gray-800 text-gray-100',
-  light: 'bg-gray-50 text-gray-800 border border-gray-200',
+  light: 'bg-gray-600 text-gray-100 border border-gray-500',
 };
 
 const sizeStyles: Record<BadgeSize, string> = {

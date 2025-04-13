@@ -54,7 +54,7 @@ const MainCalculator = () => {
   const [yearlyCustomCosts, setYearlyCustomCosts] = useState<Record<string, any>>({});
   const [expandedYear, setExpandedYear] = useState<number | null>(null);
   const [expandedSchool, setExpandedSchool] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState('family');
+  const [activeTab, setActiveTab] = useState('cost-summary');
 
   // Family members state (initially set up with three children based on research doc)
   const [familyMembers, setFamilyMembers] = useState<FamilyMember[]>([
@@ -300,43 +300,22 @@ const MainCalculator = () => {
 
   return (
     <Grid cols={1} gap="lg">
-      <Tabs defaultValue="family" value={activeTab} onValueChange={setActiveTab} className="mb-4">
-        <TabsList className="mb-6 bg-white border border-gray-200 p-1 rounded-lg flex w-full overflow-x-auto space-x-1">
-          <TabsTrigger
-            value="family"
-            className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-          >
-            Family Setup
-          </TabsTrigger>
-          <TabsTrigger
-            value="costs"
-            className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-          >
-            Cost Customization
-          </TabsTrigger>
-          <TabsTrigger
-            value="summary"
-            className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-          >
-            Cost Summary
-          </TabsTrigger>
-          <TabsTrigger
-            value="comparison"
-            className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-          >
-            School Comparison
-          </TabsTrigger>
-          <TabsTrigger
-            value="projection"
-            className="flex-1 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-          >
-            Year-by-Year Projection
-          </TabsTrigger>
+      <Tabs
+        defaultValue="cost-summary"
+        className="space-y-4"
+        value={activeTab}
+        onValueChange={setActiveTab}
+      >
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="cost-summary">Cost Summary</TabsTrigger>
+          <TabsTrigger value="family">Family Members</TabsTrigger>
+          <TabsTrigger value="customize">Customize Costs</TabsTrigger>
+          <TabsTrigger value="projection">Yearly Projection</TabsTrigger>
         </TabsList>
 
         <TabsContent
           value="family"
-          className="bg-white rounded-lg shadow p-6 border border-gray-100"
+          className="bg-gray-800 rounded-lg shadow p-6 border border-gray-700"
         >
           <FamilyMembersPanel
             familyMembers={familyMembers}
@@ -347,8 +326,8 @@ const MainCalculator = () => {
         </TabsContent>
 
         <TabsContent
-          value="costs"
-          className="bg-white rounded-lg shadow p-6 border border-gray-100"
+          value="customize"
+          className="bg-gray-800 rounded-lg shadow p-6 border border-gray-700"
         >
           <CostCustomizationPanel
             schoolsData={customSchoolsData}
@@ -376,24 +355,15 @@ const MainCalculator = () => {
         </TabsContent>
 
         <TabsContent
-          value="summary"
-          className="bg-white rounded-lg shadow p-6 border border-gray-100"
+          value="cost-summary"
+          className="bg-gray-800 rounded-lg shadow p-6 border border-gray-700"
         >
           <CostSummary
             familyCosts={familyCosts}
             schoolsData={schoolsData}
             formatCurrency={formatCurrency}
-          />
-        </TabsContent>
-
-        <TabsContent
-          value="comparison"
-          className="bg-white rounded-lg shadow p-6 border border-gray-100"
-        >
-          <VisualizationPanel
-            familyCosts={familyCosts}
-            schoolsData={schoolsData}
-            formatCurrency={formatCurrency}
+            familyMembers={familyMembers}
+            setActiveTab={setActiveTab}
             years={years}
             currentYear={currentYear}
           />
@@ -401,7 +371,7 @@ const MainCalculator = () => {
 
         <TabsContent
           value="projection"
-          className="bg-white rounded-lg shadow p-6 border border-gray-100"
+          className="bg-gray-800 rounded-lg shadow p-6 border border-gray-700"
         >
           <YearlyProjection
             familyCosts={familyCosts}
