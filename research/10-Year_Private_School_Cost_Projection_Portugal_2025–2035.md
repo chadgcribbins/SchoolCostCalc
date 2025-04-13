@@ -214,6 +214,110 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 
 5. **Graduation Effect**: Overall family costs decrease substantially as each child graduates, with the most dramatic drop after the first child completes school.
 
+## Risk Factors and Alternative Scenarios
+
+### Risk Factors
+
+1. **Fee Increases Above Inflation**: While we've assumed a 3% annual inflation rate, schools may increase fees by higher amounts, particularly in response to economic conditions or facilities expansion. Historical data from international schools shows that fee increases have occasionally exceeded inflation by 2-4% in certain years.
+
+2. **Currency Exchange Risk**: For expatriate families with income in GBP, USD, or other currencies, fluctuations in the EUR exchange rate could significantly impact the real cost of education. A 10% weakening of a family's home currency against the EUR would effectively add 10% to all costs.
+
+3. **Policy Changes**: Schools may alter their fee structures, sibling discount policies, or included services. For example, if TASIS were to start charging separately for lunch (currently included), this would add approximately €3,000 per year to a three-child family's cost.
+
+4. **Additional Mandatory Fees**: Schools sometimes introduce new fees (technology fees, building funds, etc.). For example, a new €500/year technology fee would add €15,000 to the 10-year projection for a three-child family.
+
+5. **Hidden Cost Inflation**: While tuition often increases at published rates, optional costs like transport, uniforms, and activities may increase at higher rates, potentially adding 5-10% to projected optional costs over time.
+
+### Alternative Scenarios
+
+1. **Early Withdrawal**: If a child leaves the school system early (e.g., to attend a boarding school abroad), this impacts both the direct costs and sibling discounts:
+
+   **Example**: If Child 1 leaves after Year 3 for a UK boarding school:
+   - Direct savings on remaining two years of tuition/fees: ~€50,000
+   - Loss of sibling discount for Child 3 at TASIS: Additional ~€5,500 over two years
+   - Net effect: ~€44,500 reduction in projected costs
+
+2. **School Transfer**: Moving a child between schools can have complex cost implications:
+
+   **Example**: Moving all three children from TASIS to The Lisboan after Year 2:
+   - New registration fees: €14,250
+   - Loss of sibling discount benefit at TASIS: ~€2,750/year
+   - Potential savings on optional costs: ~€3,000/year (primarily lunch)
+   - Net effect: Approximately €8,250 additional cost in Year 3, potentially breaking even by Year 5
+
+3. **Additional Child**: Adding a fourth child to the family would trigger larger sibling discounts at both TASIS (25% for fourth child) and Saint Dominic's (25% for fourth child):
+
+   **Example**: Fourth child entering in Year 3 (2027-2028) in early primary:
+   - TASIS: 25% discount saves ~€4,500/year on tuition
+   - Saint Dominic's: 25% discount saves ~€3,700/year on tuition
+   - The Lisboan: No additional discount
+   - Net effect: TASIS becomes more cost-effective for larger families
+
+4. **Public School Alternative**: Comparing to the Portuguese public school system:
+
+   - Public education in Portugal is free (except for books, supplies, and meals)
+   - Approximate costs for three children in public school: €3,000-€5,000/year total
+   - 10-year savings vs. private education: ~€450,000-€500,000
+   - Considerations: Language immersion, curriculum differences, potential need for private tutoring
+
+### Scholarship and Financial Aid Options
+
+1. **Merit Scholarships**: Some international schools offer limited merit-based scholarships:
+   - Saint Dominic's: Academic Excellence scholarships covering 10-25% of tuition for exceptional students
+   - TASIS: Talent scholarships for arts and sports up to 15% of tuition
+   - The Lisboan: New school establishing scholarship program, currently limited
+
+2. **Corporate Education Allowances**: Many multinational employers provide education allowances for expatriate employees:
+   - Typical corporate allowance: €10,000-€20,000 per child per year
+   - May be capped at a total family amount
+   - Usually requires documentation and direct billing arrangements
+
+3. **Income-Based Financial Aid**: Limited availability at non-profit schools:
+   - Saint Dominic's offers need-based aid to a small percentage of students
+   - Documentation requirements include tax returns and financial statements
+   - Typically reduces costs by 10-30% for qualifying families
+
+## Tax Implications
+
+### Portugal Resident Taxpayers
+
+1. **Education Tax Deductions**: Portugal allows limited deduction of education expenses:
+   - 30% of education expenses can be deducted up to a maximum of €800 per taxpayer
+   - Applies to expenses for dependents registered in the household
+   - Impact: Potential tax savings of up to €240 per year per taxpayer
+
+2. **Dependent Child Credit**: Additional tax credits available per dependent child:
+   - Fixed amount plus percentage based on age of child
+   - Not directly related to education expenses but helps offset overall costs
+
+### Non-Resident Considerations
+
+1. **Foreign Tax Credits**: Families paying taxes in home countries may have different considerations:
+   - UK: No specific tax relief for private education
+   - US: 529 education savings plans may provide tax advantages but typically only for higher education
+   - Tax treaties may impact how education allowances are taxed
+
+2. **Corporate Structures**: Some expatriate packages structure education benefits through employer-paid arrangements that may have more favorable tax treatment than direct payment by parents.
+
+## Grade Progression Table
+
+The following table shows the exact grade/year placement of each child throughout the 10-year projection period:
+
+| Year | School Year | Child 1 (born 2012) | Child 2 (born 2015) | Child 3 (born 2017) |
+|------|-------------|---------------------|---------------------|---------------------|
+| 1    | 2025-2026   | Grade/Year 8        | Grade/Year 5        | Grade/Year 3        |
+| 2    | 2026-2027   | Grade/Year 9        | Grade/Year 6        | Grade/Year 4        |
+| 3    | 2027-2028   | Grade/Year 10       | Grade/Year 7        | Grade/Year 5        |
+| 4    | 2028-2029   | Grade/Year 11       | Grade/Year 8        | Grade/Year 6        |
+| 5    | 2029-2030   | Grade/Year 12       | Grade/Year 9        | Grade/Year 7        |
+| 6    | 2030-2031   | Graduated           | Grade/Year 10       | Grade/Year 8        |
+| 7    | 2031-2032   | Graduated           | Grade/Year 11       | Grade/Year 9        |
+| 8    | 2032-2033   | Graduated           | Grade/Year 12       | Grade/Year 10       |
+| 9    | 2033-2034   | Graduated           | Graduated           | Grade/Year 11       |
+| 10   | 2034-2035   | Graduated           | Graduated           | Grade/Year 12       |
+
+This progression table helps visualize exactly when each child moves through different fee brackets and when sibling discount structures would change as children graduate.
+
 ## References
 
 1. **The Lisboan School Fees 2025/26**  
