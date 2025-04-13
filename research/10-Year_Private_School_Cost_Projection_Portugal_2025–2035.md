@@ -15,12 +15,14 @@ This analysis details all costs for three children (currently ages 13, 10, and 8
 
 ### Base Assumptions
 
-- **Children's Ages/Grades**: 
+- **Children's Ages/Grades**:
+
   - Child 1: Age 13 (beginning in Grade/Year 8)
   - Child 2: Age 10 (beginning in Grade/Year 5)
   - Child 3: Age 8 (beginning in Grade/Year 3)
 
 - **Progression Timeline**:
+
   - Child 1: Completes Grade 12 in Year 5 of projection (graduates)
   - Child 2: Completes Grade 12 in Year 8 of projection (graduates)
   - Child 3: Completes Grade 12 in Year 10 of projection (graduates)
@@ -32,31 +34,38 @@ This analysis details all costs for three children (currently ages 13, 10, and 8
 ## The Lisboan International School
 
 ### School Profile
+
 A new British-curriculum international school in Lisbon (opened 2023), offering Nursery through Year 13 (ages 3–18). It follows the UK Key Stages and IB Diploma in the final years.
 
 ### One-Time Fees
+
 - **Application Fee**: €250 per child (non-refundable)
 - **Registration Fee**: €4,750 per child (one-time, upon enrollment)
 
 For our family: €250 ×3 = €750 in application fees, and €4,750 ×3 = €14,250 in registration fees.
 
 ### Annual Tuition Fees
+
 The Lisboan's tuition is structured by year group:
-- **Early Years** (Nursery/Reception): €11,950 per year 
+
+- **Early Years** (Nursery/Reception): €11,950 per year
 - **Primary** (e.g. Year 3): €15,950 per year
 - **Middle School** (e.g. Year 8): €17,950 per year
 - **High School** (Year 12–13): €21,950 per year
 
 For our family in the first projection year (2025-2026):
+
 - Child 1 (Year 8): €17,950
 - Child 2 (Year 5): €15,950
 - Child 3 (Year 3): €15,950
 - Family Total: €49,850
 
 ### Recurring Annual Fees
+
 The Lisboan does not charge an annual re-enrollment or capital fee each year – the €4,750 registration is one-time only. No published sibling discount policy exists.
 
 ### Optional & Miscellaneous Costs
+
 - **Lunch Program**: €1,000 per child per year
 - **Uniforms**: €300 per child per year
 - **Transport**: €3,000 per child per year
@@ -64,19 +73,23 @@ The Lisboan does not charge an annual re-enrollment or capital fee each year –
 - **School Trips**: €500 per child per year
 
 ### Payment Plan Options
+
 The Lisboan offers annual payment or termly payments (3 terms per year) with no price difference. They do not advertise a monthly payment plan.
 
 ## TASIS Portugal
 
 ### School Profile
+
 An American-style international school offering Pre-K through High School with an American curriculum and IB Diploma options.
 
 ### One-Time Fees
+
 - **Application Fee**: €100 per child
 - **Enrollment Fee**: €5,000 per child (one-time)
 - **Annual Re-enrollment Fee**: €750 per student, each year
 
 ### Annual Tuition Fees
+
 - **Grades 1–2**: €16,470 per year
 - **Grades 3–5**: €18,330 per year
 - **Grades 6–8**: €19,080 per year
@@ -84,6 +97,7 @@ An American-style international school offering Pre-K through High School with a
 - **Grades 11–12**: €23,160 per year
 
 For our family in the first projection year (2025-2026):
+
 - Child 1 (Grade 8): €19,080
 - Child 2 (Grade 5): €18,330
 - Child 3 (Grade 3): €18,330 - 15% discount = €15,580
@@ -92,9 +106,11 @@ For our family in the first projection year (2025-2026):
 TASIS tuition is notably comprehensive, including textbooks, instructional materials, lunch, snacks, standard field trips, and basic after-school activities.
 
 ### Sibling Discount
+
 TASIS offers a 15% discount for the third child enrolled concurrently (no discount for the second child). In our scenario, the 15% discount applies to the youngest child until the oldest graduates in Year 5.
 
 ### Optional Costs
+
 - **Uniforms**: €300 per year per child
 - **Transport**: €3,000 per year per child
 - **Additional Activities**: €500 per year per child
@@ -104,9 +120,11 @@ TASIS offers a 15% discount for the third child enrolled concurrently (no discou
 ## Saint Dominic's International School
 
 ### School Profile
+
 An established IB World School offering PYP, MYP, and Diploma programs for ages 3–18.
 
 ### One-Time Fees
+
 - **Application Fee**: €1,000 per child
 - **Capital Levy**: €5,000 per child (one-time)
 - **Annual Registration Fee**: Varies by grade level:
@@ -115,21 +133,25 @@ An established IB World School offering PYP, MYP, and Diploma programs for ages 
   - Grades 11–12: €2,050 per year
 
 ### Annual Tuition Fees
+
 - **Grades 1–5**: €14,200–€15,000 per year
 - **Grades 6–8**: €17,100–€17,400 per year
 - **Grade 9–10**: €20,500 per year
 - **Grades 11–12**: €22,000 per year
 
 For our family in the first projection year (2025-2026):
+
 - Child 1 (Grade 9): €20,500
 - Child 2 (Grade 6): €17,100 - 5% discount = €16,245
 - Child 3 (Grade 3): €14,600 - 15% discount = €12,410
 - Family Total: €49,155 (plus registration fees: €1,500 + €1,200 + €1,200 = €3,900)
 
 ### Sibling Discount
+
 St. Dominic's offers sibling discounts: second child gets 5% off tuition, third child gets 15% off tuition. The discount structure changes as children graduate.
 
 ### Recurring Fees and Optional Costs
+
 - **Annual PTA Fee**: €35 per family
 - **Lunch**: €1,000 per year per child
 - **Transport**: €3,000 per year per child
@@ -141,6 +163,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 ## Cost Projection (with 3% annual inflation)
 
 ### Year 1 (2025-2026)
+
 - **The Lisboan**:
   - Mandatory: €49,850
   - Optional: €15,900
@@ -155,6 +178,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
   - Total: €68,990
 
 ### Year 5 (2029-2030) - After Child 1 Graduates
+
 - **The Lisboan**:
   - Mandatory: €42,130
   - Optional: €10,600
@@ -169,6 +193,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
   - Total: €55,520
 
 ### Year 10 (2034-2035) - Only Child 3 Remains
+
 - **The Lisboan**:
   - Mandatory: €25,440
   - Optional: €5,300
@@ -185,18 +210,21 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 ## Summary of 10-Year Total Costs
 
 ### The Lisboan
+
 - **Mandatory Costs**: €359,750
 - **Optional Costs**: €121,500
 - **One-Time Fees**: €15,000
 - **Total Over 10 Years**: €496,250 (£414,369)
 
 ### TASIS Portugal
+
 - **Mandatory Costs**: €392,600
 - **Optional Costs**: €87,000
 - **One-Time Fees**: €15,300
 - **Total Over 10 Years**: €494,900 (£413,242)
 
 ### Saint Dominic's
+
 - **Mandatory Costs**: €412,750
 - **Optional Costs**: €121,500
 - **One-Time Fees**: €18,000
@@ -233,6 +261,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 1. **Early Withdrawal**: If a child leaves the school system early (e.g., to attend a boarding school abroad), this impacts both the direct costs and sibling discounts:
 
    **Example**: If Child 1 leaves after Year 3 for a UK boarding school:
+
    - Direct savings on remaining two years of tuition/fees: ~€50,000
    - Loss of sibling discount for Child 3 at TASIS: Additional ~€5,500 over two years
    - Net effect: ~€44,500 reduction in projected costs
@@ -240,6 +269,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 2. **School Transfer**: Moving a child between schools can have complex cost implications:
 
    **Example**: Moving all three children from TASIS to The Lisboan after Year 2:
+
    - New registration fees: €14,250
    - Loss of sibling discount benefit at TASIS: ~€2,750/year
    - Potential savings on optional costs: ~€3,000/year (primarily lunch)
@@ -248,6 +278,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 3. **Additional Child**: Adding a fourth child to the family would trigger larger sibling discounts at both TASIS (25% for fourth child) and Saint Dominic's (25% for fourth child):
 
    **Example**: Fourth child entering in Year 3 (2027-2028) in early primary:
+
    - TASIS: 25% discount saves ~€4,500/year on tuition
    - Saint Dominic's: 25% discount saves ~€3,700/year on tuition
    - The Lisboan: No additional discount
@@ -263,11 +294,13 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 ### Scholarship and Financial Aid Options
 
 1. **Merit Scholarships**: Some international schools offer limited merit-based scholarships:
+
    - Saint Dominic's: Academic Excellence scholarships covering 10-25% of tuition for exceptional students
    - TASIS: Talent scholarships for arts and sports up to 15% of tuition
    - The Lisboan: New school establishing scholarship program, currently limited
 
 2. **Corporate Education Allowances**: Many multinational employers provide education allowances for expatriate employees:
+
    - Typical corporate allowance: €10,000-€20,000 per child per year
    - May be capped at a total family amount
    - Usually requires documentation and direct billing arrangements
@@ -282,6 +315,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 ### Portugal Resident Taxpayers
 
 1. **Education Tax Deductions**: Portugal allows limited deduction of education expenses:
+
    - 30% of education expenses can be deducted up to a maximum of €800 per taxpayer
    - Applies to expenses for dependents registered in the household
    - Impact: Potential tax savings of up to €240 per year per taxpayer
@@ -293,6 +327,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 ### Non-Resident Considerations
 
 1. **Foreign Tax Credits**: Families paying taxes in home countries may have different considerations:
+
    - UK: No specific tax relief for private education
    - US: 529 education savings plans may provide tax advantages but typically only for higher education
    - Tax treaties may impact how education allowances are taxed
@@ -304,7 +339,7 @@ St. Dominic's offers sibling discounts: second child gets 5% off tuition, third 
 The following table shows the exact grade/year placement of each child throughout the 10-year projection period:
 
 | Year | School Year | Child 1 (born 2012) | Child 2 (born 2015) | Child 3 (born 2017) |
-|------|-------------|---------------------|---------------------|---------------------|
+| ---- | ----------- | ------------------- | ------------------- | ------------------- |
 | 1    | 2025-2026   | Grade/Year 8        | Grade/Year 5        | Grade/Year 3        |
 | 2    | 2026-2027   | Grade/Year 9        | Grade/Year 6        | Grade/Year 4        |
 | 3    | 2027-2028   | Grade/Year 10       | Grade/Year 7        | Grade/Year 5        |
@@ -336,4 +371,4 @@ This progression table helps visualize exactly when each child moves through dif
    Sourced from parental expense surveys and vendor estimates (uniformebom.pt)
 
 6. **IB Program Cost Components**  
-   International Baccalaureate Organization — [https://www.ibo.org/become-an-ib-school/fees-and-services/](https://www.ibo.org/become-an-ib-school/fees-and-services/) 
+   International Baccalaureate Organization — [https://www.ibo.org/become-an-ib-school/fees-and-services/](https://www.ibo.org/become-an-ib-school/fees-and-services/)

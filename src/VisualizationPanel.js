@@ -1,35 +1,50 @@
 import React from 'react';
-import { LineChart, BarChart, PieChart, Cell, Line, Bar, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  Cell,
+  Line,
+  Bar,
+  Pie,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
-const VisualizationPanel = ({ 
-  schoolsData, 
-  familyCosts, 
-  years, 
-  formatCurrency, 
+const VisualizationPanel = ({
+  schoolsData,
+  familyCosts,
+  years,
+  formatCurrency,
   currentYear,
   activeTab,
-  setActiveTab
+  setActiveTab,
 }) => {
   // Prepare data for annual cost comparison chart
   const annualCostData = years.map(year => {
     const yearData = { year };
-    
+
     Object.keys(schoolsData).forEach(schoolId => {
       const yearCosts = familyCosts[schoolId].yearly[year];
       if (yearCosts) {
-        yearData[schoolId] = yearCosts.total + (year === years[0] ? familyCosts[schoolId].oneTime.total : 0);
+        yearData[schoolId] =
+          yearCosts.total + (year === years[0] ? familyCosts[schoolId].oneTime.total : 0);
         yearData[`${schoolId}Label`] = formatCurrency(yearData[schoolId]);
       } else {
         yearData[schoolId] = 0;
         yearData[`${schoolId}Label`] = 'N/A';
       }
     });
-    
+
     return yearData;
   });
-  
+
   // Prepare data for cost breakdown pie charts
-  const prepareCostBreakdownData = (schoolId) => {
+  const prepareCostBreakdownData = schoolId => {
     const totalCosts = {
       baseTuition: 0,
       yearlyEnrollmentFee: 0,
@@ -37,13 +52,13 @@ const VisualizationPanel = ({
       transport: 0,
       uniform: 0,
       afterSchool: 0,
-      registration: familyCosts[schoolId].oneTime.total // One-time registration fee
+      registration: familyCosts[schoolId].oneTime.total, // One-time registration fee
     };
-    
+
     // Sum up all costs across all years
     Object.keys(familyCosts[schoolId].yearly).forEach(year => {
       const breakdown = familyCosts[schoolId].yearly[year].breakdown;
-      
+
       totalCosts.baseTuition += breakdown.baseTuition;
       totalCosts.yearlyEnrollmentFee += breakdown.yearlyEnrollmentFee;
       totalCosts.lunch += breakdown.lunch;
@@ -51,7 +66,7 @@ const VisualizationPanel = ({
       totalCosts.uniform += breakdown.uniform;
       totalCosts.afterSchool += breakdown.afterSchool;
     });
-    
+
     // Convert to array format for chart
     return [
       { name: 'Base Tuition', value: totalCosts.baseTuition },
@@ -66,24 +81,25 @@ const VisualizationPanel = ({
 
   // Colors for the charts
   const colors = ['#8884d8', '#82ca9d', '#ffc658', '#ff8042', '#0088FE', '#00C49F', '#FFBB28'];
-  
+
   // Prepare cumulative cost data
   const cumulativeCostData = [];
   const cumulativeTotals = {};
-  
+
   Object.keys(schoolsData).forEach(schoolId => {
     cumulativeTotals[schoolId] = 0;
   });
-  
+
   years.forEach(year => {
     const yearData = { year };
-    
+
     Object.keys(schoolsData).forEach(schoolId => {
       const yearCosts = familyCosts[schoolId].yearly[year];
-      
+
       if (yearCosts) {
         // Add one-time costs in the first year
-        const yearTotal = yearCosts.total + (year === years[0] ? familyCosts[schoolId].oneTime.total : 0);
+        const yearTotal =
+          yearCosts.total + (year === years[0] ? familyCosts[schoolId].oneTime.total : 0);
         cumulativeTotals[schoolId] += yearTotal;
         yearData[schoolId] = cumulativeTotals[schoolId];
         yearData[`${schoolId}Label`] = formatCurrency(cumulativeTotals[schoolId]);
@@ -92,30 +108,30 @@ const VisualizationPanel = ({
         yearData[`${schoolId}Label`] = formatCurrency(cumulativeTotals[schoolId]);
       }
     });
-    
+
     cumulativeCostData.push(yearData);
   });
-  
+
   return (
     <div className="mb-8">
       <h2 className="text-xl font-semibold mb-4">Visualizations</h2>
-      
+
       <div className="bg-white p-4 rounded-lg shadow-sm mb-4">
         <div className="mb-4">
           <div className="flex border-b">
-            <button 
+            <button
               className={`py-2 px-4 ${activeTab === 'comparison' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600'}`}
               onClick={() => setActiveTab('comparison')}
             >
               Annual Comparison
             </button>
-            <button 
+            <button
               className={`py-2 px-4 ${activeTab === 'cumulative' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600'}`}
               onClick={() => setActiveTab('cumulative')}
             >
               Cumulative Costs
             </button>
-            <button 
+            <button
               className={`py-2 px-4 ${activeTab === 'breakdown' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600'}`}
               onClick={() => setActiveTab('breakdown')}
             >
@@ -123,7 +139,7 @@ const VisualizationPanel = ({
             </button>
           </div>
         </div>
-        
+
         <div className="h-96">
           {activeTab === 'comparison' && (
             <div className="h-full">
@@ -137,13 +153,16 @@ const VisualizationPanel = ({
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="year" />
                     <YAxis />
-                    <Tooltip 
-                      formatter={(value, name) => [formatCurrency(value), schoolsData[name]?.name || name]}
-                      labelFormatter={(label) => `Year: ${label}`}
+                    <Tooltip
+                      formatter={(value, name) => [
+                        formatCurrency(value),
+                        schoolsData[name]?.name || name,
+                      ]}
+                      labelFormatter={label => `Year: ${label}`}
                     />
                     <Legend />
                     {Object.keys(schoolsData).map((schoolId, index) => (
-                      <Bar 
+                      <Bar
                         key={schoolId}
                         dataKey={schoolId}
                         name={schoolsData[schoolId].name}
@@ -155,7 +174,7 @@ const VisualizationPanel = ({
               </div>
             </div>
           )}
-          
+
           {activeTab === 'cumulative' && (
             <div className="h-full">
               <h3 className="text-lg font-medium mb-2">Cumulative Costs Over Time</h3>
@@ -168,13 +187,16 @@ const VisualizationPanel = ({
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="year" />
                     <YAxis />
-                    <Tooltip 
-                      formatter={(value, name) => [formatCurrency(value), schoolsData[name]?.name || name]}
-                      labelFormatter={(label) => `Year: ${label}`}
+                    <Tooltip
+                      formatter={(value, name) => [
+                        formatCurrency(value),
+                        schoolsData[name]?.name || name,
+                      ]}
+                      labelFormatter={label => `Year: ${label}`}
                     />
                     <Legend />
                     {Object.keys(schoolsData).map((schoolId, index) => (
-                      <Line 
+                      <Line
                         key={schoolId}
                         type="monotone"
                         dataKey={schoolId}
@@ -188,7 +210,7 @@ const VisualizationPanel = ({
               </div>
             </div>
           )}
-          
+
           {activeTab === 'breakdown' && (
             <div className="h-full">
               <h3 className="text-lg font-medium mb-2">Cost Breakdown by Category</h3>
@@ -212,7 +234,7 @@ const VisualizationPanel = ({
                             <Cell key={`cell-${i}`} fill={colors[i % colors.length]} />
                           ))}
                         </Pie>
-                        <Tooltip formatter={(value) => formatCurrency(value)} />
+                        <Tooltip formatter={value => formatCurrency(value)} />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>

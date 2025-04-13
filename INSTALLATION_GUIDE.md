@@ -148,7 +148,7 @@ To add new schools to the calculator:
 
 To change default values:
 
-1. Edit the default values in the main calculator component 
+1. Edit the default values in the main calculator component
 2. Update the `formatSchoolData` function if necessary
 
 ## Deploying to Production

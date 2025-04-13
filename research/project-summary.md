@@ -11,6 +11,7 @@ The project exists as a well-structured research document with comprehensive dat
 ### Completed Components
 
 1. **Comprehensive Research Documentation**
+
    - Detailed breakdown of all three schools' fee structures
    - Accurate one-time and recurring fees for each institution
    - Complete analysis of sibling discount policies
@@ -18,6 +19,7 @@ The project exists as a well-structured research document with comprehensive dat
    - Optional vs. mandatory cost categorization
 
 2. **Cost Projection Models**
+
    - 10-year financial projections for all schools (2025-2035)
    - Itemized breakdown of tuition, fees, and additional costs
    - Calculations that account for grade progression and fee changes
@@ -32,6 +34,7 @@ The project exists as a well-structured research document with comprehensive dat
 The project's current implementation consists of:
 
 - **Individual School Cost Models**: Each school has its own detailed cost structure and projection model that accounts for:
+
   - One-time enrollment fees
   - Annual tuition fees (with grade-based adjustments)
   - Mandatory recurring fees
@@ -39,6 +42,7 @@ The project's current implementation consists of:
   - Applicable sibling discounts
 
 - **Cost Projection Framework**: The system models costs over a 10-year period (2025-2035) with:
+
   - Year-by-year breakdown
   - Accounting for children's grade progression
   - Inflation adjustments (3% annual)
@@ -55,6 +59,7 @@ The project's current implementation consists of:
 Our research yielded several important insights:
 
 1. **Significant Cost Variation**: Total 10-year costs vary substantially between schools:
+
    - The Lisboan: Approximately €360,000 plus one-time fees
    - TASIS Portugal: Approximately €430,000 plus one-time fees
    - Saint Dominic's: Approximately €525,000 plus one-time fees
@@ -79,4 +84,4 @@ The project incorporates data from various authoritative sources including:
 5. **Typical Uniform Costs in Portugal**
 6. **IB Program Cost Components**
 
-All sources are properly documented in the research materials. 
+All sources are properly documented in the research materials.

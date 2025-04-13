@@ -19,10 +19,18 @@ const CostSummary = ({ schoolsData, familyCosts, formatCurrency }) => {
             {Object.keys(schoolsData).map(schoolId => (
               <tr key={schoolId} className="border-t">
                 <td className="py-2 px-3 font-medium">{schoolsData[schoolId].name}</td>
-                <td className="py-2 px-3 text-right">{formatCurrency(familyCosts[schoolId].mandatory.total)}</td>
-                <td className="py-2 px-3 text-right">{formatCurrency(familyCosts[schoolId].optional.total)}</td>
-                <td className="py-2 px-3 text-right">{formatCurrency(familyCosts[schoolId].oneTime.total)}</td>
-                <td className="py-2 px-3 text-right font-bold">{formatCurrency(familyCosts[schoolId].grandTotal)}</td>
+                <td className="py-2 px-3 text-right">
+                  {formatCurrency(familyCosts[schoolId].mandatory.total)}
+                </td>
+                <td className="py-2 px-3 text-right">
+                  {formatCurrency(familyCosts[schoolId].optional.total)}
+                </td>
+                <td className="py-2 px-3 text-right">
+                  {formatCurrency(familyCosts[schoolId].oneTime.total)}
+                </td>
+                <td className="py-2 px-3 text-right font-bold">
+                  {formatCurrency(familyCosts[schoolId].grandTotal)}
+                </td>
               </tr>
             ))}
           </tbody>

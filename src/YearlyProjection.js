@@ -14,7 +14,7 @@ const YearlyProjection = ({
   setExpandedYear,
   expandedSchool,
   setExpandedSchool,
-  customSchoolsData
+  customSchoolsData,
 }) => {
   // Toggle expanded year/school for detailed view
   const toggleYearDetail = (year, schoolId) => {
@@ -24,7 +24,7 @@ const YearlyProjection = ({
     } else {
       setExpandedYear(year);
       setExpandedSchool(schoolId);
-      
+
       // Initialize yearly custom costs if not already set
       if (useCustomCosts && (!yearlyCustomCosts[year] || !yearlyCustomCosts[year][schoolId])) {
         const school = customSchoolsData[schoolId];
@@ -34,15 +34,15 @@ const YearlyProjection = ({
           lunch: calculateInflatedCost(school.lunch, year),
           transport: calculateInflatedCost(school.transport, year),
           uniform: calculateInflatedCost(school.uniform, year),
-          afterSchool: calculateInflatedCost(school.afterSchool, year)
+          afterSchool: calculateInflatedCost(school.afterSchool, year),
         };
-        
+
         setYearlyCustomCosts(prev => ({
           ...prev,
           [year]: {
             ...(prev[year] || {}),
-            [schoolId]: initialCosts
-          }
+            [schoolId]: initialCosts,
+          },
         }));
       }
     }
@@ -56,9 +56,9 @@ const YearlyProjection = ({
         ...(prev[year] || {}),
         [schoolId]: {
           ...(prev[year]?.[schoolId] || {}),
-          [costType]: parseFloat(value) || 0
-        }
-      }
+          [costType]: parseFloat(value) || 0,
+        },
+      },
     }));
   };
 
@@ -92,7 +92,10 @@ const YearlyProjection = ({
                         <>
                           {formatCurrency(familyCosts[schoolId].yearly[year].total)}
                           <div className="text-xs text-gray-500">
-                            Click to {expandedYear === year && expandedSchool === schoolId ? 'collapse' : 'expand'}
+                            Click to{' '}
+                            {expandedYear === year && expandedSchool === schoolId
+                              ? 'collapse'
+                              : 'expand'}
                           </div>
                         </>
                       ) : (
@@ -101,7 +104,7 @@ const YearlyProjection = ({
                     </td>
                   ))}
                 </tr>
-                
+
                 {/* Expanded Detail Row - FIXED! */}
                 {expandedYear === year && expandedSchool && (
                   <tr className="bg-blue-50">
@@ -110,87 +113,130 @@ const YearlyProjection = ({
                         <h3 className="font-bold text-lg mb-2">
                           {schoolsData[expandedSchool].name} - {year} Detailed Costs
                         </h3>
-                        
+
                         {useCustomCosts && (
                           <div className="mb-4 p-3 bg-yellow-50 rounded border border-yellow-200">
                             <h4 className="font-semibold mb-2">Customize Yearly Costs</h4>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                               <div>
                                 <label className="block text-sm">Base Tuition</label>
-                                <input 
-                                  type="number" 
-                                  value={yearlyCustomCosts[year]?.[expandedSchool]?.baseTuition || 
-                                    getYearlyCost(expandedSchool, year, 'baseTuition')}
-                                  onChange={(e) => updateYearlyCustomCost(
-                                    year, expandedSchool, 'baseTuition', e.target.value
-                                  )}
+                                <input
+                                  type="number"
+                                  value={
+                                    yearlyCustomCosts[year]?.[expandedSchool]?.baseTuition ||
+                                    getYearlyCost(expandedSchool, year, 'baseTuition')
+                                  }
+                                  onChange={e =>
+                                    updateYearlyCustomCost(
+                                      year,
+                                      expandedSchool,
+                                      'baseTuition',
+                                      e.target.value
+                                    )
+                                  }
                                   className="border rounded p-1 w-full"
                                 />
                               </div>
                               <div>
                                 <label className="block text-sm">Enrollment Fee</label>
-                                <input 
-                                  type="number" 
-                                  value={yearlyCustomCosts[year]?.[expandedSchool]?.yearlyEnrollmentFee || 
-                                    getYearlyCost(expandedSchool, year, 'yearlyEnrollmentFee')}
-                                  onChange={(e) => updateYearlyCustomCost(
-                                    year, expandedSchool, 'yearlyEnrollmentFee', e.target.value
-                                  )}
+                                <input
+                                  type="number"
+                                  value={
+                                    yearlyCustomCosts[year]?.[expandedSchool]
+                                      ?.yearlyEnrollmentFee ||
+                                    getYearlyCost(expandedSchool, year, 'yearlyEnrollmentFee')
+                                  }
+                                  onChange={e =>
+                                    updateYearlyCustomCost(
+                                      year,
+                                      expandedSchool,
+                                      'yearlyEnrollmentFee',
+                                      e.target.value
+                                    )
+                                  }
                                   className="border rounded p-1 w-full"
                                 />
                               </div>
                               <div>
                                 <label className="block text-sm">Lunch</label>
-                                <input 
-                                  type="number" 
-                                  value={yearlyCustomCosts[year]?.[expandedSchool]?.lunch || 
-                                    getYearlyCost(expandedSchool, year, 'lunch')}
-                                  onChange={(e) => updateYearlyCustomCost(
-                                    year, expandedSchool, 'lunch', e.target.value
-                                  )}
+                                <input
+                                  type="number"
+                                  value={
+                                    yearlyCustomCosts[year]?.[expandedSchool]?.lunch ||
+                                    getYearlyCost(expandedSchool, year, 'lunch')
+                                  }
+                                  onChange={e =>
+                                    updateYearlyCustomCost(
+                                      year,
+                                      expandedSchool,
+                                      'lunch',
+                                      e.target.value
+                                    )
+                                  }
                                   className="border rounded p-1 w-full"
                                 />
                               </div>
                               <div>
                                 <label className="block text-sm">Transport</label>
-                                <input 
-                                  type="number" 
-                                  value={yearlyCustomCosts[year]?.[expandedSchool]?.transport || 
-                                    getYearlyCost(expandedSchool, year, 'transport')}
-                                  onChange={(e) => updateYearlyCustomCost(
-                                    year, expandedSchool, 'transport', e.target.value
-                                  )}
+                                <input
+                                  type="number"
+                                  value={
+                                    yearlyCustomCosts[year]?.[expandedSchool]?.transport ||
+                                    getYearlyCost(expandedSchool, year, 'transport')
+                                  }
+                                  onChange={e =>
+                                    updateYearlyCustomCost(
+                                      year,
+                                      expandedSchool,
+                                      'transport',
+                                      e.target.value
+                                    )
+                                  }
                                   className="border rounded p-1 w-full"
                                 />
                               </div>
                               <div>
                                 <label className="block text-sm">Uniform</label>
-                                <input 
-                                  type="number" 
-                                  value={yearlyCustomCosts[year]?.[expandedSchool]?.uniform || 
-                                    getYearlyCost(expandedSchool, year, 'uniform')}
-                                  onChange={(e) => updateYearlyCustomCost(
-                                    year, expandedSchool, 'uniform', e.target.value
-                                  )}
+                                <input
+                                  type="number"
+                                  value={
+                                    yearlyCustomCosts[year]?.[expandedSchool]?.uniform ||
+                                    getYearlyCost(expandedSchool, year, 'uniform')
+                                  }
+                                  onChange={e =>
+                                    updateYearlyCustomCost(
+                                      year,
+                                      expandedSchool,
+                                      'uniform',
+                                      e.target.value
+                                    )
+                                  }
                                   className="border rounded p-1 w-full"
                                 />
                               </div>
                               <div>
                                 <label className="block text-sm">After School</label>
-                                <input 
-                                  type="number" 
-                                  value={yearlyCustomCosts[year]?.[expandedSchool]?.afterSchool || 
-                                    getYearlyCost(expandedSchool, year, 'afterSchool')}
-                                  onChange={(e) => updateYearlyCustomCost(
-                                    year, expandedSchool, 'afterSchool', e.target.value
-                                  )}
+                                <input
+                                  type="number"
+                                  value={
+                                    yearlyCustomCosts[year]?.[expandedSchool]?.afterSchool ||
+                                    getYearlyCost(expandedSchool, year, 'afterSchool')
+                                  }
+                                  onChange={e =>
+                                    updateYearlyCustomCost(
+                                      year,
+                                      expandedSchool,
+                                      'afterSchool',
+                                      e.target.value
+                                    )
+                                  }
                                   className="border rounded p-1 w-full"
                                 />
                               </div>
                             </div>
                           </div>
                         )}
-                        
+
                         <div className="overflow-x-auto">
                           <table className="w-full border-collapse">
                             <thead>
@@ -203,20 +249,27 @@ const YearlyProjection = ({
                               <tr>
                                 <td className="p-2 border">Base Tuition</td>
                                 <td className="p-2 border text-right">
-                                  {formatCurrency(familyCosts[expandedSchool].yearly[year].breakdown.baseTuition)}
+                                  {formatCurrency(
+                                    familyCosts[expandedSchool].yearly[year].breakdown.baseTuition
+                                  )}
                                 </td>
                               </tr>
                               <tr>
                                 <td className="p-2 border">Yearly Enrollment Fee</td>
                                 <td className="p-2 border text-right">
-                                  {formatCurrency(familyCosts[expandedSchool].yearly[year].breakdown.yearlyEnrollmentFee)}
+                                  {formatCurrency(
+                                    familyCosts[expandedSchool].yearly[year].breakdown
+                                      .yearlyEnrollmentFee
+                                  )}
                                 </td>
                               </tr>
                               {familyCosts[expandedSchool].yearly[year].breakdown.lunch > 0 && (
                                 <tr>
                                   <td className="p-2 border">Lunch</td>
                                   <td className="p-2 border text-right">
-                                    {formatCurrency(familyCosts[expandedSchool].yearly[year].breakdown.lunch)}
+                                    {formatCurrency(
+                                      familyCosts[expandedSchool].yearly[year].breakdown.lunch
+                                    )}
                                   </td>
                                 </tr>
                               )}
@@ -224,7 +277,9 @@ const YearlyProjection = ({
                                 <tr>
                                   <td className="p-2 border">Transport</td>
                                   <td className="p-2 border text-right">
-                                    {formatCurrency(familyCosts[expandedSchool].yearly[year].breakdown.transport)}
+                                    {formatCurrency(
+                                      familyCosts[expandedSchool].yearly[year].breakdown.transport
+                                    )}
                                   </td>
                                 </tr>
                               )}
@@ -232,15 +287,20 @@ const YearlyProjection = ({
                                 <tr>
                                   <td className="p-2 border">Uniform</td>
                                   <td className="p-2 border text-right">
-                                    {formatCurrency(familyCosts[expandedSchool].yearly[year].breakdown.uniform)}
+                                    {formatCurrency(
+                                      familyCosts[expandedSchool].yearly[year].breakdown.uniform
+                                    )}
                                   </td>
                                 </tr>
                               )}
-                              {familyCosts[expandedSchool].yearly[year].breakdown.afterSchool > 0 && (
+                              {familyCosts[expandedSchool].yearly[year].breakdown.afterSchool >
+                                0 && (
                                 <tr>
                                   <td className="p-2 border">After School Activities</td>
                                   <td className="p-2 border text-right">
-                                    {formatCurrency(familyCosts[expandedSchool].yearly[year].breakdown.afterSchool)}
+                                    {formatCurrency(
+                                      familyCosts[expandedSchool].yearly[year].breakdown.afterSchool
+                                    )}
                                   </td>
                                 </tr>
                               )}
@@ -248,7 +308,9 @@ const YearlyProjection = ({
                                 <tr>
                                   <td className="p-2 border">Registration Fee (One-time)</td>
                                   <td className="p-2 border text-right">
-                                    {formatCurrency(familyCosts[expandedSchool].oneTime.registrationFee)}
+                                    {formatCurrency(
+                                      familyCosts[expandedSchool].oneTime.registrationFee
+                                    )}
                                   </td>
                                 </tr>
                               )}
@@ -256,8 +318,10 @@ const YearlyProjection = ({
                                 <td className="p-2 border">Total for {year}</td>
                                 <td className="p-2 border text-right">
                                   {formatCurrency(
-                                    familyCosts[expandedSchool].yearly[year].total + 
-                                    (year === years[0] ? familyCosts[expandedSchool].oneTime.total : 0)
+                                    familyCosts[expandedSchool].yearly[year].total +
+                                      (year === years[0]
+                                        ? familyCosts[expandedSchool].oneTime.total
+                                        : 0)
                                   )}
                                 </td>
                               </tr>

@@ -43,10 +43,13 @@ convert -background transparent public/logo.svg -resize 512x512 public/logo512.p
 If you prefer, you can also modify the `index.html` and `manifest.json` files to use the SVG files directly, which works in most modern browsers:
 
 1. In `index.html`, change:
+
    ```html
    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
    ```
+
    to:
+
    ```html
    <link rel="icon" href="%PUBLIC_URL%/favicon.svg" type="image/svg+xml" />
    ```
