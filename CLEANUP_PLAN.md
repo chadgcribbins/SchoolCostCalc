@@ -73,7 +73,25 @@ This will move the following files to `archive/calculator-backup/`:
 - [x] `src/components/calculator/VisualizationPanel.tsx`
 - [x] `src/components/calculator/YearlyProjection.tsx`
 
-### 5. Further Improvements (Manual Steps)
+### 5. Documentation Reorganization
+
+- [x] Move `research/10-Year_Private_School_Cost_Projection_Portugal_2025–2035.md` to `RESEARCH.md`
+- [x] Move `research/project-summary.md` to `PROJECT_STATUS.md`
+- [x] Merge content from `research/portugal-school-calculator-roadmap.md` into `ROADMAP.md`
+- [x] Create `DOCUMENTATION.md` as a central index for all documentation
+- [x] Update `README.md` to reference the new documentation structure
+- [x] Archive the research directory to `archive/research/`
+
+### 6. General Cleanup (Completed April 2025)
+
+- [x] Archive all cleanup scripts to `archive/scripts/`
+- [x] Remove empty `temp-new-app` directory
+- [x] Archive Excel data files to `archive/data/`
+- [x] Archive package-lock backup files to `archive/other-files/`
+- [x] Clean up `.DS_Store` files
+- [x] Create a README.md in the archive directory
+
+### 7. Further Improvements (Manual Steps)
 
 1. **Organize Components by Feature:**
 
@@ -93,10 +111,14 @@ This will move the following files to `archive/calculator-backup/`:
 
 ## After Cleanup
 
-After cleanup, the project should have:
+The project now has:
 
-1. Clearly organized directory structure
-2. No duplicate components
-3. Consistent import paths
-4. Secure environment variable handling
-5. Better TypeScript usage throughout the codebase
+1. ✅ Clearly organized directory structure
+2. ✅ No duplicate components
+3. ✅ Consistent import paths
+4. ✅ Secure environment variable handling
+5. ✅ Better TypeScript usage throughout the codebase
+6. ✅ Consolidated and accessible documentation
+7. ✅ Archive of unused files for historical reference
+
+All cleanup activities have been completed. The repository is now ready for the next phase of development, with a clean structure and comprehensive documentation.

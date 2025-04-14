@@ -2,6 +2,10 @@
 
 A responsive web application to help families project and plan for international school education costs in Portugal.
 
+**Live Demo**: [school-cost-calc.vercel.app](https://school-cost-calc.vercel.app)
+
+**Project Status**: Version 1.0.0 - April 2025 (Stable release with core features implemented)
+
 ## Features
 
 - Calculate projected costs for multiple children
@@ -22,27 +26,31 @@ A responsive web application to help families project and plan for international
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/yourusername/SchoolCostCalc.git
+   git clone https://github.com/chadgcribbins/SchoolCostCalc.git
    cd SchoolCostCalc
    ```
 
 2. Install dependencies
 
    ```bash
-   npm install
-   # or
-   yarn
+   npm install --legacy-peer-deps
    ```
 
-3. Start the development server
+3. Set up environment variables
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Add the required environment variables (see [Installation Guide](./INSTALLATION_GUIDE.md) for details)
+
+4. Start the development server
 
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ### VSCode Setup
 
@@ -69,83 +77,45 @@ These extensions will be suggested automatically when you open the project in VS
 - TypeScript
 - Tailwind CSS
 - Shadcn UI components
+- Chart.js for data visualization
 
 ## Component Structure
 
 The application is built using the following components:
 
-1. **MainCalculator.js**: The main component that handles state management and calculations
-2. **CostCustomizationPanel.js**: Allows customization of school costs and inflation settings
-3. **FamilyMembersPanel.js**: For adding and managing family members
-4. **YearlyProjection.js**: Provides a detailed year-by-year cost projection
-5. **VisualizationPanel.js**: Interactive charts and visualizations of costs
-6. **CostSummary.js**: Summary of total costs across all schools
+1. **MainCalculator**: The main component that handles state management and calculations
+2. **CostCustomizationPanel**: Allows customization of school costs and inflation settings
+3. **FamilyMembersPanel**: For adding and managing family members
+4. **YearlyProjection**: Provides a detailed year-by-year cost projection
+5. **VisualizationPanel**: Interactive charts and visualizations of costs
+6. **CostSummary**: Summary of total costs across all schools
 
-## Usage
+## Deployment
 
-### Prerequisites
+This project is deployed on Vercel. For deployment instructions and troubleshooting, see the [Deployment Guide](./DEPLOYMENT.md).
 
-- Node.js (v14+)
-- npm or yarn
+## Future Roadmap
 
-### Installation
+Planned enhancements for future versions are detailed in our [Roadmap](./ROADMAP.md), including:
 
-1. Clone the repository:
+- User accounts and saved configurations
+- Additional international schools in Portugal
+- Tax implications calculator
+- Mobile app version
+- Printable reports
+- Multi-language support (Portuguese/English)
 
-```bash
-git clone https://github.com/yourusername/portugal-school-calculator.git
-cd portugal-school-calculator
-```
+## Documentation
 
-2. Install dependencies:
+For complete project documentation, see [DOCUMENTATION.md](./DOCUMENTATION.md).
 
-```bash
-npm install
-# or
-yarn install
-```
+Key documentation includes:
 
-3. Set up environment variables:
-
-```bash
-cp .env.example .env
-```
-
-Edit the `.env` file and add your actual values. See [Figma Integration Setup](./FIGMA_SETUP.md) for details on obtaining these values.
-
-4. Start the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-The application will be available at `http://localhost:3000` or another available port.
-
-### Using the Calculator
-
-1. Add family members and set their ages
-2. Customize school costs if needed
-3. Enable/disable optional costs
-4. View the cost summary and yearly projections
-5. Explore different visualizations to understand the cost breakdown
-
-## Customization
-
-The calculator comes pre-loaded with sample data for three international schools. You can customize this data by:
-
-1. Modifying the default school data in `MainCalculator.js`
-2. Adjusting the inflation rate and cost parameters
-3. Adding new schools through the UI
-
-## Design System
-
-The application uses the Flowbite design system. To access the design components:
-
-1. Ensure you have the required environment variables set up (see above)
-2. Visit `/figma-test` route to verify the connection to the Figma API
-3. Refer to [Figma Integration Setup](./FIGMA_SETUP.md) for more details
+- [Project Status](./PROJECT_STATUS.md) - Current implementation details and research findings
+- [Research](./RESEARCH.md) - Comprehensive 10-year cost analysis for Portuguese schools
+- [Installation Guide](./INSTALLATION_GUIDE.md) - Detailed setup instructions
+- [Deployment Guide](./DEPLOYMENT.md) - Deployment instructions and lessons learned
+- [Figma Integration](./FIGMA_SETUP.md) - Setting up Figma API integration
 
 ## License
 
