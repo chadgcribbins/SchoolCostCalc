@@ -25,6 +25,7 @@ export interface SchoolData {
     diploma: number;
   };
   ptaFee?: number;
+  id?: string;
 }
 
 export interface FamilyMember {

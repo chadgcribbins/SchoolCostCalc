@@ -13,52 +13,53 @@ import { Grid } from '@/components/ui/grid';
 
 interface CostCustomizationPanelProps {
   schoolsData: Record<string, FormattedSchoolData>;
+  customSchoolsData: Record<string, FormattedSchoolData>;
   useCustomCosts: boolean;
   setUseCustomCosts: (value: boolean) => void;
-  updateSchoolData: (schoolId: string, field: keyof FormattedSchoolData, value: number) => void;
-  currency: string;
-  setCurrency: (value: string) => void;
-  exchangeRate: number;
-  formatCurrency: (amount: number) => string;
+  handleUpdateCustomSchoolData: (
+    schoolId: string,
+    field: keyof FormattedSchoolData,
+    value: number
+  ) => void;
   resetCustomData: () => void;
-  includeLunch: boolean;
-  setIncludeLunch: (value: boolean) => void;
-  includeTransport: boolean;
-  setIncludeTransport: (value: boolean) => void;
-  includeUniform: boolean;
-  setIncludeUniform: (value: boolean) => void;
-  includeAfterSchool: boolean;
-  setIncludeAfterSchool: (value: boolean) => void;
   inflationRate: number;
   setInflationRate: (value: number) => void;
   applyInflation: boolean;
   setApplyInflation: (value: boolean) => void;
+  currency: string;
+  setCurrency: (value: string) => void;
+  exchangeRate: number;
 }
 
 const CostCustomizationPanel = ({
   schoolsData,
+  customSchoolsData,
   useCustomCosts,
   setUseCustomCosts,
-  updateSchoolData,
-  currency,
-  setCurrency,
-  exchangeRate,
-  formatCurrency,
+  handleUpdateCustomSchoolData: updateSchoolData,
   resetCustomData,
-  includeLunch,
-  setIncludeLunch,
-  includeTransport,
-  setIncludeTransport,
-  includeUniform,
-  setIncludeUniform,
-  includeAfterSchool,
-  setIncludeAfterSchool,
   inflationRate,
   setInflationRate,
   applyInflation,
   setApplyInflation,
+  currency,
+  setCurrency,
+  exchangeRate,
 }: CostCustomizationPanelProps) => {
   const [activeSchool, setActiveSchool] = useState<string | null>(null);
+
+  // Local state for optional costs since they're no longer passed as props
+  const [includeLunch, setIncludeLunch] = useState(true);
+  const [includeTransport, setIncludeTransport] = useState(true);
+  const [includeUniform, setIncludeUniform] = useState(true);
+  const [includeAfterSchool, setIncludeAfterSchool] = useState(false);
+
+  // Define a simple formatCurrency function since it's no longer passed as a prop
+  const formatCurrency = (amount: number) => {
+    const symbol = currency === 'EUR' ? '€' : '£';
+    const value = currency === 'EUR' ? amount : amount * exchangeRate;
+    return `${symbol}${value.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+  };
 
   const handleNumberChange = (
     e: ChangeEvent<HTMLInputElement>,

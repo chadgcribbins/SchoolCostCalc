@@ -1,21 +1,30 @@
 'use client';
 
-import { useState } from 'react';
-import { FamilyMember, FormattedSchoolData, FamilyCosts, StudentCosts, YearlyCost } from '@/types';
+import { useState, useEffect } from 'react';
+import {
+  FamilyMember,
+  FormattedSchoolData,
+  FamilyCosts,
+  StudentCosts,
+  YearlyCost,
+  SchoolData,
+} from '@/types';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import CostCustomizationPanel from '@/components/CostCustomizationPanel';
 import FamilyMembersPanel from '@/components/FamilyMembersPanel';
 import YearlyProjection from '@/components/YearlyProjection';
 import VisualizationPanel from '@/components/VisualizationPanel';
 import CostSummary from '@/components/CostSummary';
+import SchoolImportPanel from '@/components/SchoolImportPanel';
 import realSchoolsData from '@/data/real-schools-data';
 import { Grid } from '@/components/ui/grid';
 
 const MainCalculator = () => {
   // Convert real school data to the format needed by the calculator
-  const formatSchoolData = () => {
+  const formatSchoolData = (customSchoolsData: Record<string, SchoolData> = {}) => {
     const formattedData: Record<string, FormattedSchoolData> = {};
 
+    // Process built-in schools
     Object.keys(realSchoolsData).forEach(schoolKey => {
       const school = realSchoolsData[schoolKey];
 
@@ -35,11 +44,36 @@ const MainCalculator = () => {
       };
     });
 
+    // Process custom schools only if there are any
+    if (customSchoolsData && Object.keys(customSchoolsData).length > 0) {
+      Object.keys(customSchoolsData).forEach(schoolKey => {
+        const school = customSchoolsData[schoolKey];
+
+        formattedData[schoolKey] = {
+          name: school.name,
+          baseTuition: school.baseTuition,
+          registrationFee: school.registrationFee + school.applicationFee, // Combine application and registration
+          yearlyEnrollmentFee: school.yearlyEnrollmentFee,
+          lunch: school.lunch,
+          transport: school.transport,
+          uniform: school.uniform,
+          afterSchool: school.afterSchool,
+          url: school.url,
+          feesUrl: school.feesUrl,
+          siblingDiscount: typeof school.siblingDiscount === 'number' ? school.siblingDiscount : 0,
+          includesLunch: school.includesLunch || false,
+        };
+      });
+    }
+
     return formattedData;
   };
 
-  // Default school data
-  const defaultSchoolsData = formatSchoolData();
+  // Add state for custom schools first
+  const [customSchools, setCustomSchools] = useState<Record<string, SchoolData>>({});
+
+  // Then get the default school data with empty custom schools
+  const defaultSchoolsData = formatSchoolData({});
 
   // Core state variables
   const [schoolsData] = useState(defaultSchoolsData);
@@ -298,6 +332,37 @@ const MainCalculator = () => {
   // Calculate all costs
   const familyCosts = calculateFamilyCosts();
 
+  // Handle importing a new school
+  const handleImportSchool = (school: SchoolData) => {
+    // Generate a unique ID for the school based on name
+    const schoolId = school.name.toLowerCase().replace(/\s+/g, '_');
+
+    // Add the school to customSchools with functional update to ensure latest state
+    setCustomSchools(prev => {
+      const updatedCustomSchools = {
+        ...prev,
+        [schoolId]: school,
+      };
+
+      // Update the formatted school data immediately with the updated schools
+      const updatedSchoolsData = formatSchoolData(updatedCustomSchools);
+      setCustomSchoolsData(updatedSchoolsData);
+
+      return updatedCustomSchools;
+    });
+
+    // Switch to the summary tab to see the new school
+    setActiveTab('cost-summary');
+  };
+
+  // Update formatted custom schools when customSchools changes
+  useEffect(() => {
+    setCustomSchoolsData(formatSchoolData(customSchools));
+  }, [customSchools]);
+
+  // Other state variables
+  const [activeSchools, setActiveSchools] = useState<string[]>([]);
+
   return (
     <Grid cols={1} gap="lg">
       <Tabs
@@ -307,10 +372,10 @@ const MainCalculator = () => {
         onValueChange={setActiveTab}
       >
         <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="cost-summary">Cost Summary</TabsTrigger>
-          <TabsTrigger value="family">Family Members</TabsTrigger>
-          <TabsTrigger value="customize">Customize Costs</TabsTrigger>
-          <TabsTrigger value="projection">Yearly Projection</TabsTrigger>
+          <TabsTrigger value="cost-summary">Summary</TabsTrigger>
+          <TabsTrigger value="breakdown">Breakdown</TabsTrigger>
+          <TabsTrigger value="family">Add Family Members</TabsTrigger>
+          <TabsTrigger value="add-school">Add School</TabsTrigger>
         </TabsList>
 
         <TabsContent
@@ -326,32 +391,47 @@ const MainCalculator = () => {
         </TabsContent>
 
         <TabsContent
-          value="customize"
+          value="breakdown"
           className="bg-gray-800 rounded-lg shadow p-6 border border-gray-700"
         >
-          <CostCustomizationPanel
-            schoolsData={customSchoolsData}
-            useCustomCosts={useCustomCosts}
-            setUseCustomCosts={setUseCustomCosts}
-            updateSchoolData={handleUpdateCustomSchoolData}
-            currency={currency}
-            setCurrency={setCurrency}
-            exchangeRate={exchangeRate}
-            formatCurrency={formatCurrency}
-            resetCustomData={resetCustomData}
-            includeLunch={includeLunch}
-            setIncludeLunch={setIncludeLunch}
-            includeTransport={includeTransport}
-            setIncludeTransport={setIncludeTransport}
-            includeUniform={includeUniform}
-            setIncludeUniform={setIncludeUniform}
-            includeAfterSchool={includeAfterSchool}
-            setIncludeAfterSchool={setIncludeAfterSchool}
-            inflationRate={inflationRate}
-            setInflationRate={setInflationRate}
-            applyInflation={applyInflation}
-            setApplyInflation={setApplyInflation}
-          />
+          <Tabs defaultValue="customize" className="mt-2">
+            <TabsList className="w-full grid grid-cols-2 mb-4">
+              <TabsTrigger value="customize">Customize Costs</TabsTrigger>
+              <TabsTrigger value="projection">Yearly Projection</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="customize">
+              <CostCustomizationPanel
+                schoolsData={schoolsData}
+                customSchoolsData={customSchoolsData}
+                useCustomCosts={useCustomCosts}
+                setUseCustomCosts={setUseCustomCosts}
+                handleUpdateCustomSchoolData={handleUpdateCustomSchoolData}
+                resetCustomData={resetCustomData}
+                inflationRate={inflationRate}
+                setInflationRate={setInflationRate}
+                applyInflation={applyInflation}
+                setApplyInflation={setApplyInflation}
+                currency={currency}
+                setCurrency={setCurrency}
+                exchangeRate={exchangeRate}
+              />
+            </TabsContent>
+
+            <TabsContent value="projection">
+              <YearlyProjection
+                familyCosts={familyCosts}
+                schoolsData={schoolsData}
+                formatCurrency={formatCurrency}
+                years={years}
+                familyMembers={familyMembers}
+                expandedYear={expandedYear}
+                setExpandedYear={setExpandedYear}
+                expandedSchool={expandedSchool}
+                setExpandedSchool={setExpandedSchool}
+              />
+            </TabsContent>
+          </Tabs>
         </TabsContent>
 
         <TabsContent
@@ -370,19 +450,12 @@ const MainCalculator = () => {
         </TabsContent>
 
         <TabsContent
-          value="projection"
+          value="add-school"
           className="bg-gray-800 rounded-lg shadow p-6 border border-gray-700"
         >
-          <YearlyProjection
-            familyCosts={familyCosts}
-            schoolsData={schoolsData}
-            formatCurrency={formatCurrency}
-            years={years}
-            familyMembers={familyMembers}
-            expandedYear={expandedYear}
-            setExpandedYear={setExpandedYear}
-            expandedSchool={expandedSchool}
-            setExpandedSchool={setExpandedSchool}
+          <SchoolImportPanel
+            onImportSchool={handleImportSchool}
+            loadedSchools={useCustomCosts ? customSchoolsData : schoolsData}
           />
         </TabsContent>
       </Tabs>
